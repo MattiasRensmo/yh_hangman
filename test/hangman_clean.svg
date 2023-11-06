@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="sv">
- <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="main.js" defer type="application/javascript"></script>
- </head>
-
- <body>
-  <svg
+<svg
+   width="400px"
    class="hangman"
    viewBox="0 0 97.798119 125.82729"
    version="1.1"
@@ -17,11 +7,15 @@
    <g
     id="hangman__bodyparts"
     class="hangman__bodyparts"
-    transform="translate(-44.846877,-33.319586)">
+    transform="translate(-44.846877,-33.319586)"
+    stroke="black"
+    stroke-width="3"
+    fill="none">
     <path
      id="hangman__base"
      class="hangman__base hangman__part"
-     d="M 45.640627,159.14688 A 28.839582,28.839582 0 0 1 74.480209,130.3073 28.839582,28.839582 0 0 1 103.31979,159.14688" />
+     d="M 45.640627,159.14688 A 28.839582,28.839582 0 0 1 74.480209,130.3073 28.839582,28.839582 0 0 1 103.31979,159.14688" 
+    />
     <path
      id="hangman__stem"
      class="hangman__stem"
@@ -68,7 +62,9 @@
     <g
      id="hangman__face"
      class="hangman__face"
-     transform="translate(44.846877,33.319586)">
+     transform="translate(44.846877,33.319586)"
+     stroke-width="1"
+     >
      <g id="g14" transform="rotate(45,83.715975,36.004481)">
       <path d="m 86.359376,36.296875 h -3.875" id="path13" />
       <path d="m 84.375001,38.3125 v -3.875" id="path14" />
@@ -83,5 +79,3 @@
     </g>
    </g>
   </svg>
- </body>
-</html>

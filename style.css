@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
+
+html,
+body {
+ height: 100lvh;
+}
+
 body {
  height: 100lvh;
  background-image: url(./img/blackboard.jpg);
@@ -5,4 +12,73 @@ body {
  background-position: center;
  background-repeat: no-repeat;
  background-size: cover;
+}
+
+.letters__letter {
+ color: #ffffff;
+ font-family: "Pangolin", sans-serif;
+ font-size: 4rem;
+ cursor: pointer;
+}
+
+/* Help class */
+.hidden {
+ display: none;
+}
+
+main {
+ height: 100%;
+ margin: auto auto;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+}
+
+/* * All hangman rules
+     Every body part gets it own rule to get the animation to work. 
+     If we animate the parent only the first body part work.   
+     todo: Try to find a way to only animate all children
+*/
+
+.hangman {
+ width: min(400px, 90vw);
+ opacity: 0.8;
+}
+
+.hangman__body-parts {
+ fill: none;
+ stroke: #ffffff;
+ stroke-width: 2.5;
+ stroke-opacity: 1;
+}
+
+.hangman__body-parts > * {
+ stroke-dasharray: 100;
+ stroke-dashoffset: 0;
+ animation: drawLine 1s ease-in-out forwards;
+}
+
+.hangman__cross-brace {
+ animation: drawLine 12s linear forwards;
+}
+
+.hangman__head {
+ transform: rotate(-90deg);
+ transform-origin: 132px 73px;
+}
+
+.hangman__face {
+ stroke-width: 1;
+ animation: drawLine 5s forwards;
+}
+
+@keyframes drawLine {
+ 0% {
+  stroke-dashoffset: 100;
+ }
+
+ 100% {
+  stroke-dashoffset: 0;
+ }
 }

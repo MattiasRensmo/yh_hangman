@@ -4,7 +4,7 @@ body {
 }
 
 body {
- background: black;
+ background: #abcdef;
  /* background: url(/img/blackboard.jpg) no-repeat;
  background-size: cover;
  background-position: center; */
@@ -30,12 +30,12 @@ body {
  stroke-opacity: 1;
 }
 
-.hangman__base {
+.hangman__bodyparts > * {
  stroke-dasharray: 100;
  stroke-dashoffset: 0;
  animation: drawLine 1s ease-in-out forwards;
 }
-
+/* 
 .hangman__stem {
  stroke-dasharray: 100;
  stroke-dashoffset: 0;
@@ -101,7 +101,7 @@ body {
  stroke-dasharray: 100;
  stroke-dashoffset: 0;
  animation: drawLine 5s forwards;
-}
+} */
 
 @keyframes drawLine {
  0% {
