@@ -47,7 +47,7 @@ Rita ut lika många streck som bokstäver i ordet
 Knapp "Start the game"
 ev. med fräck bakåtanimation
 
-### Att gissa på en bokstav (Mattias)
+### Att gissa på en bokstav (Mattias) FÄRDIG
 
 Man kan klicka på varje bokstav för att gissa ELLER så kan man skriva på tangentbordet
 Om vi har en textruta - ge error om man skriver mer än en bokstav - eller om ngt annat än en bokstav
