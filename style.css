@@ -26,7 +26,7 @@ p {
   gap: 1.5rem;
 }
 
-.word-line p {
+.word-line__letter {
   width: min(4rem, 4vw);
   aspect-ratio: 1/1.2;
   /* height: min(4rem, 4vw); */

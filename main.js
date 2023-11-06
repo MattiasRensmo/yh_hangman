@@ -86,7 +86,9 @@ function drawLetterLines(word, hidden = true) {
     if (hidden) {
       wordLine.innerHTML += `<p class="word-line__letter"></p>`; //Show without letters
     } else {
-      wordLine.innerHTML += `<p class="word-line">${word[i].toUpperCase()}</p>`; //Show with letters
+      wordLine.innerHTML += `<p class="word-line__letter">${word[
+        i
+      ].toUpperCase()}</p>`; //Show with letters
     }
   }
 }
