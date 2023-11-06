@@ -1,0 +1,57 @@
+
+@keyframes head {
+ 0% {
+  stroke-dashoffset: 187;
+ }
+
+ 100% {
+  stroke-dashoffset: 0;
+ }
+}
+
+.hidden {
+ visibility: hidden;
+}
+
+/* .man__base {
+ width: 300px;
+ height: 300px;
+ transform: rotate(-180deg);
+ stroke-linecap: round;
+ stroke-width: 4;
+ /* fill: none; */
+ fill: none;
+} */
+.man__base__circle {
+}
+
+.newMan__svg {
+ height: 400px;
+}
+
+.newMan__base__circle {
+ stroke-dasharray: 360;
+
+ /* transform: rotate(-180deg);
+ transform-origin: 73px 159px; */
+
+ fill: none;
+ stroke: #ffffff;
+ stroke-width: 1.5875;
+ stroke-opacity: 1;
+
+ stroke-dashoffset: 0;
+
+ animation: base 1s linear 1 forwards;
+ opacity: 0.9;
+}
+
+@keyframes base {
+ 0% {
+  stroke-dashoffset: 360;
+ }
+
+ 100% {
+  stroke-dashoffset: 180;
+ }
+}
