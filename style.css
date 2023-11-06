@@ -1,38 +1,59 @@
 @import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
 
-html,
+/* html,
 body {
- height: 100lvh;
-}
+  height: 100lvh;
+} */
 
 body {
- height: 100lvh;
- background-image: url(./img/blackboard.jpg);
- /* background-color: black; */
- background-position: center;
- background-repeat: no-repeat;
- background-size: cover;
+  height: 100lvh;
+  background-image: url(./img/blackboard.jpg);
+  /* background-color: black; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+p {
+  color: #ffffff;
+  font-family: "Pangolin", sans-serif;
+  font-size: min(4rem, 4vw);
+}
+
+.word-line {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.word-line p {
+  width: min(4rem, 4vw);
+  aspect-ratio: 1/1.2;
+  /* height: min(4rem, 4vw); */
+  margin: 0;
+  /* padding-inline: 1.5rem; */
+  text-align: center;
+  border-bottom: 3px solid white;
 }
 
 .letters__letter {
- color: #ffffff;
- font-family: "Pangolin", sans-serif;
- font-size: 4rem;
- cursor: pointer;
+  cursor: pointer;
 }
 
 /* Help class */
 .hidden {
- display: none;
+  display: none;
 }
 
 main {
- height: 100%;
- margin: auto auto;
- display: flex;
- justify-content: center;
- align-items: center;
- flex-direction: column;
+  height: 100%;
+  margin: auto auto;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  gap: 4rem;
+  padding-top: 4rem;
 }
 
 /* * All hangman rules
@@ -42,43 +63,43 @@ main {
 */
 
 .hangman {
- width: min(400px, 90vw);
- opacity: 0.8;
+  width: min(400px, 90vw);
+  opacity: 0.8;
 }
 
 .hangman__body-parts {
- fill: none;
- stroke: #ffffff;
- stroke-width: 2.5;
- stroke-opacity: 1;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2.5;
+  stroke-opacity: 1;
 }
 
 .hangman__body-parts > * {
- stroke-dasharray: 100;
- stroke-dashoffset: 0;
- animation: drawLine 1s ease-in-out forwards;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  animation: drawLine 1s ease-in-out forwards;
 }
 
 .hangman__cross-brace {
- animation: drawLine 12s linear forwards;
+  animation: drawLine 12s linear forwards;
 }
 
 .hangman__head {
- transform: rotate(-90deg);
- transform-origin: 132px 73px;
+  transform: rotate(-90deg);
+  transform-origin: 132px 73px;
 }
 
 .hangman__face {
- stroke-width: 1;
- animation: drawLine 5s forwards;
+  stroke-width: 1;
+  animation: drawLine 5s forwards;
 }
 
 @keyframes drawLine {
- 0% {
-  stroke-dashoffset: 100;
- }
+  0% {
+    stroke-dashoffset: 100;
+  }
 
- 100% {
-  stroke-dashoffset: 0;
- }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
