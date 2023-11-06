@@ -55,8 +55,6 @@ drawLetterLines(word);
 document.addEventListener("keydown", (e) => {
  const letter = e.key.toLocaleLowerCase();
 
- //If its a allowed letter that has't been guessed yes
-
  letterGuess(letter, word);
 });
 
@@ -78,8 +76,10 @@ function drawLetterLines(word) {
 }
 
 function letterGuess(letter, word) {
+ //If its a allowed letter that has't been guessed yet
  if (possibleLetters.includes(letter)) {
   possibleLetters.splice(possibleLetters.indexOf(letter), 1); //Remove from allowed guesses
+  //todo We should add a class to make the mouse pointer to an arrow when we cant click it anymore
   console.log("Guessed", letter);
  }
  //Om bokstaven redan är gissad - gör inget
