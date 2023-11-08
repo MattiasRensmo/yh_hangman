@@ -77,20 +77,16 @@ function randomWord(dic) {
   return word;
 }
 
-function drawLetterLines(word, hidden = true) {
+function drawLetterLines(word) {
   //Draws as many lines as there are letters in the word
   //Optional variable "Hidden" set to false if we wanna shoa all letters at the end
 
   hidden = false; // ⭕ for testing purpose only, remove to hide letters"
   wordLine.innerHTML = "";
   for (let i = 0; i < word.length; i++) {
-    if (hidden) {
-      wordLine.innerHTML += `<p class="word-line__letter">_</p>`; //Show without letters
-    } else {
-      wordLine.innerHTML += `<p class="word-line__letter">${word[
-        i
-      ].toUpperCase()}</p>`; //Show with letters
-    }
+    wordLine.innerHTML += `
+    <p class="word-line__letter">${word[i].toUpperCase()}</p>
+    `; //Show with letters
   }
 }
 
