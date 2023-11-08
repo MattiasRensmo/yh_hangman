@@ -1,4 +1,6 @@
 const bodyParts = document.querySelectorAll("#hangman__body-parts > *");
+const modal = document.querySelector("#modal");
+
 bodyParts.forEach((part) => part.classList.add("hidden"));
 let wrongGuesses = 0;
 let guesses = 0;
@@ -50,6 +52,8 @@ let possibleLetters = [
 ];
 const wordLine = document.querySelector(".word-line");
 
+showModal("Spela Hangman", "Vilket språk vill du ha?", "Spela");
+
 drawLetterLines(guessedWord);
 
 //Event listener för letter på keyboard (mattias)
@@ -57,6 +61,11 @@ document.addEventListener("keydown", (e) => {
   const letter = e.key.toLocaleLowerCase();
   letterGuess(letter, word);
   guess(letter, word);
+});
+
+modal.querySelector(".modal__button").addEventListener("click", () => {
+  console.log("Spela");
+  modal.classList.add("hidden");
 });
 
 //Event listener for press the letter (mattias)
@@ -149,4 +158,15 @@ function resetGame() {
 
 function removeFromArray(str, arr) {
   return arr.splice(arr.indexOf(str), 1); //Remove str from arr
+}
+
+function showModal(heading, text, button) {
+  const modalContent = modal.querySelector(".modal__content");
+  html = `
+  <h1 class="modal__title">${heading}</h1>
+  <p class="modal__text">${text}</p>
+  <button class="modal__button">${button}</button>
+  `;
+  modalContent.innerHTML = html;
+  modal.classList.remove("hidden");
 }

@@ -59,9 +59,29 @@ p {
   cursor: pointer;
 }
 
-/* Help class */
-.hidden {
-  display: none;
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal__content {
+  background-color: #fefefe;
+  color: black;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  /* height: 70%; */
+}
+
+.modal__text {
+  color: #888;
 }
 
 main {
@@ -122,4 +142,9 @@ main {
   100% {
     stroke-dashoffset: 0;
   }
+}
+
+/* Help class */
+.hidden {
+  display: none;
 }
