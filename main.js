@@ -1,20 +1,16 @@
-// TEST AREA BEGIN
-
 const bodyParts = document.querySelectorAll("#hangman__body-parts > *");
 bodyParts.forEach((part) => part.classList.add("hidden"));
-let part = 0;
-
-document.addEventListener("click", (e) => {
-  if (part == bodyParts.length) return;
-  bodyParts[part].classList.remove("hidden");
-  part++;
-});
-
-// TEST AREA END
+let wrongGuesses = 0;
+let guesses = 0;
 
 const dictionary = ["children", "roomy", "calculator", "reminiscent", "ubiquitous"];
 
 const word = randomWord(dictionary);
+let guessedWord = "";
+for (let i = 0; i < word.length; i++) {
+  guessedWord += " ";
+  console.log(word[i]);
+}
 console.log("⭕ Rätt svar:", word);
 
 let correctGuesses; // Här lägger vi in alla rätta bokstäver på rätt plats "a--ba"
@@ -54,13 +50,13 @@ let possibleLetters = [
 ];
 const wordLine = document.querySelector(".word-line");
 
-drawLetterLines(word);
+drawLetterLines(guessedWord);
 
 //Event listener för letter på keyboard (mattias)
 document.addEventListener("keydown", (e) => {
   const letter = e.key.toLocaleLowerCase();
   letterGuess(letter, word);
-  Guess(letter, word);
+  guess(letter, word);
 });
 
 //Event listener for press the letter (mattias)
@@ -69,7 +65,7 @@ letterSection.addEventListener("click", (e) => {
   if (e.target.classList.contains("letters__letter")) {
     const letter = e.target.innerText.toLocaleLowerCase();
     letterGuess(letter, word);
-    Guess(letter, word);
+    guess(letter, word);
   }
 });
 
@@ -86,7 +82,7 @@ function drawLetterLines(word, hidden = true) {
   //Optional variable "Hidden" set to false if we wanna shoa all letters at the end
 
   hidden = false; // ⭕ for testing purpose only, remove to hide letters"
-
+  wordLine.innerHTML = "";
   for (let i = 0; i < word.length; i++) {
     if (hidden) {
       wordLine.innerHTML += `<p class="word-line__letter">_</p>`; //Show without letters
@@ -97,7 +93,6 @@ function drawLetterLines(word, hidden = true) {
     }
   }
 }
-let s = "a".toUpperCase();
 
 function letterGuess(letter, word) {
   //If its a allowed letter that has't been guessed yet
@@ -111,23 +106,45 @@ function letterGuess(letter, word) {
   // Om bokstaven inte finns i word -  kör wrongguess
 }
 
-function Guess(letter, word) {
+function guess(letter, word) {
+  guesses++;
   if (word.includes(letter)) {
     document.getElementById(letter).style.color = "green";
-    console.log(letter);
+    console.log("Correct letter", letter);
+    let newGuessedWord = guessedWord.split("");
+    for (let i = 0; i < word.length; i++) {
+      if (word[i] === letter) {
+        newGuessedWord[i] = letter;
+      }
+    }
+    guessedWord = newGuessedWord.join("");
+    drawLetterLines(guessedWord);
+    if (guessedWord === word) winner();
   } else {
     document.getElementById(letter).style.color = "red";
+    drawHangman();
   }
   // rita upp bokstäverna på linjerna, gör val bokstav grön, lägg in i corect Guesses
   //Om corretGuesses == word winner()
 }
 
+function drawHangman() {
+  bodyParts[wrongGuesses].classList.remove("hidden");
+  wrongGuesses++;
+  if (wrongGuesses >= 11) {
+    bodyParts[wrongGuesses].classList.remove("hidden");
+    loser();
+  }
+}
+
 function winner() {
   //Visar vinnarrutan
+  console.log(`Grattis du vann en iPhone med bara ${guesses} gissningar`);
 }
 
 function loser() {
   //Visar förlorarrutan
+  console.log("Game Over");
 }
 
 function resetGame() {

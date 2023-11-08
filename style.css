@@ -38,6 +38,7 @@ p {
 
 .letters {
   width: 70%;
+  /* margin-inline: 15vw */
   margin-top: -2rem;
 }
 
@@ -51,7 +52,7 @@ p {
 
 .letters__letter {
   cursor: pointer;
-  font-size: 2.5rem;
+  font-size: clamp(1rem, 4vw, 2.5rem);
 }
 
 .letters__letter {
@@ -81,7 +82,8 @@ main {
 */
 
 .hangman {
-  width: min(400px, 90vw);
+  /* width: min(400px, 90vw); */
+  height: max(30lvh, 10rem);
   opacity: 0.8;
 }
 
