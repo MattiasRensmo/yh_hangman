@@ -6,7 +6,6 @@ body {
 } */
 
 body {
-  /* height: 100lvh; */
   min-height: 100lvh;
   background-image: url(./img/blackboard.jpg);
   /* background-color: black; */
@@ -18,7 +17,6 @@ p {
   color: #ffffff;
   font-family: "Pangolin", sans-serif;
   font-size: min(4rem, 4vw);
-  margin: 0;
 }
 
 .word-line {
@@ -35,7 +33,25 @@ p {
   margin: 0;
   /* padding-inline: 1.5rem; */
   text-align: center;
-  border-bottom: 5px solid white;
+  border-bottom: 3px solid white;
+}
+
+.letters {
+  width: 70%;
+  margin-top: -2rem;
+}
+
+.letters__sections {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.letters__letter {
+  cursor: pointer;
+  font-size: 2.5rem;
 }
 
 .letters__letter {
@@ -65,8 +81,7 @@ main {
 */
 
 .hangman {
-  /* width: min(400px, 90vw); */
-  height: max(30lvh, 250px);
+  width: min(400px, 90vw);
   opacity: 0.8;
 }
 
