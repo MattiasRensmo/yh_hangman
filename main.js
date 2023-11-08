@@ -13,11 +13,13 @@ document.addEventListener("click", (e) => {
 // TEST AREA END
 
 const dictionary = ["children", "roomy", "calculator", "reminiscent", "ubiquitous"];
-
 const word = randomWord(dictionary);
 console.log("⭕ Rätt svar:", word);
 
 let correctGuesses; // Här lägger vi in alla rätta bokstäver på rätt plats "a--ba"
+// Detta kan ju oxå vara en array med de rätta bokstäverna.
+// Så kan vi kolla om alla bokstäver i svarsordet finns i arrayn isåfall är det ju kalrt
+// Eller så gör vi ett ord med mellanslag så är det lätt att skriva ut det på raden "a a" = "apa"
 let possibleLetters = [
   "a",
   "b",
@@ -84,7 +86,7 @@ function drawLetterLines(word, hidden = true) {
 
   for (let i = 0; i < word.length; i++) {
     if (hidden) {
-      wordLine.innerHTML += `<p class="word-line__letter"></p>`; //Show without letters
+      wordLine.innerHTML += `<p class="word-line__letter">_</p>`; //Show without letters
     } else {
       wordLine.innerHTML += `<p class="word-line__letter">${word[
         i
@@ -101,7 +103,7 @@ function letterGuess(letter, word) {
     //todo We should add a class to make the mouse pointer to an arrow when we cant click it anymore
     console.log("Guessed", letter);
   }
-  //Om bokstaven redan är gissad - gör inget
+  // ✅ Om bokstaven redan är gissad - gör inget
   //Om bokstaven finns i word kör correctGuess
   // Om bokstaven inte finns i word -  kör wrongguess
 }
