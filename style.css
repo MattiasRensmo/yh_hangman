@@ -6,7 +6,7 @@ body {
 } */
 
 body {
-  height: 100lvh;
+  min-height: 100lvh;
   background-image: url(./img/blackboard.jpg);
   /* background-color: black; */
   background-position: center;
@@ -34,6 +34,24 @@ p {
   /* padding-inline: 1.5rem; */
   text-align: center;
   border-bottom: 3px solid white;
+}
+
+.letters {
+  width: 70%;
+  margin-top: -2rem;
+}
+
+.letters__sections {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.letters__letter {
+  cursor: pointer;
+  font-size: 2.5rem;
 }
 
 .letters__letter {
