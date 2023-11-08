@@ -12,7 +12,13 @@ document.addEventListener("click", (e) => {
 
 // TEST AREA END
 
-const dictionary = ["children", "roomy", "calculator", "reminiscent", "ubiquitous"];
+const dictionary = [
+  "children",
+  "roomy",
+  "calculator",
+  "reminiscent",
+  "ubiquitous",
+];
 
 const word = randomWord(dictionary);
 console.log("⭕ Rätt svar:", word);
@@ -57,14 +63,16 @@ drawLetterLines(word);
 document.addEventListener("keydown", (e) => {
   const letter = e.key.toLocaleLowerCase();
   letterGuess(letter, word);
+  Guess(letter, word);
 });
 
 //Event listener for press the letter (mattias)
-const letterSection = document.querySelector(".letters");
+const letterSection = document.querySelector(".letters"); //Gjorde ändringar i html, de finns 3 nya sections i letters, vet ej om det förstör nåt med denna rad//
 letterSection.addEventListener("click", (e) => {
   if (e.target.classList.contains("letters__letter")) {
     const letter = e.target.innerText.toLocaleLowerCase();
     letterGuess(letter, word);
+    Guess(letter, word);
   }
 });
 
@@ -106,13 +114,15 @@ function letterGuess(letter, word) {
   // Om bokstaven inte finns i word -  kör wrongguess
 }
 
-function correctGuess(letter) {
+function Guess(letter, word) {
+  if (word.includes(letter)) {
+    document.getElementById(letter).style.color = "green";
+    console.log(letter);
+  } else {
+    document.getElementById(letter).style.color = "red";
+  }
   // rita upp bokstäverna på linjerna, gör val bokstav grön, lägg in i corect Guesses
   //Om corretGuesses == word winner()
-}
-function wrongGuess(letter) {
-  // gör vald bokstav röd, lägg in i wrong Guesses
-  //Om hela gubben är ritad loser()
 }
 
 function winner() {
