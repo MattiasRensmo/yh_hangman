@@ -5,7 +5,9 @@ bodyParts.forEach((part) => part.classList.add("hidden"));
 let wrongGuesses = 0;
 let guesses = 0;
 
-const dictionary = ["children", "roomy", "calculator", "reminiscent", "ubiquitous"];
+const sweWords = ["hej", "banan"];
+const engWords = ["children", "roomy", "calculator", "reminiscent", "ubiquitous"];
+let dictionary = ["children", "roomy", "calculator", "reminiscent", "ubiquitous"];
 
 const word = randomWord(dictionary);
 let guessedWord = "";
@@ -52,9 +54,36 @@ let possibleLetters = [
 ];
 const wordLine = document.querySelector(".word-line");
 
-showModal("Spela Hangman", "Vilket språk vill du ha?", "Spela");
+showModal(
+  "Spela Hangman",
+  `
+<h2>Regler</h2>
+<p>Välj en bokstav att gissa på med tangentbordet eller genom att klicka på bokstäverna på skärmen. </p>
+<h2>Välj språk på orden</h2>
+<div class="modal__flag-container">
+<img class="modal__image" id="swe"src="./img/flag_swe.png" alt="Swedish flag" title="Spela med svenska ord" />
+<img class="modal__image" id="uk" src="img/flag_uk.svg" alt="UK flag" title="Play with english words" />
+</div>
+`,
+  "Spela"
+);
 
 drawLetterLines(guessedWord);
+
+modal.addEventListener("click", (e) => {
+  console.log(e);
+  const id = e.target.id;
+  if (id === "swe") {
+    document.querySelector(`#${id}`).classList.add("modal__image-selected");
+
+    dictionary = sweWords;
+    console.log("Swedish");
+  } else if (id === "uk") {
+    document.querySelector(`#${id}`).classList.add("modal__image-selected");
+    dictionary = engWords;
+    console.log("Eng");
+  }
+});
 
 //Event listener för letter på keyboard (mattias)
 document.addEventListener("keydown", (e) => {
@@ -65,7 +94,8 @@ document.addEventListener("keydown", (e) => {
 
 modal.querySelector(".modal__button").addEventListener("click", () => {
   console.log("Spela");
-  modal.classList.add("hidden");
+  modal.close();
+  //Här kan man reseta spelet oxå
 });
 
 //Event listener for press the letter (mattias)
@@ -160,13 +190,19 @@ function removeFromArray(str, arr) {
   return arr.splice(arr.indexOf(str), 1); //Remove str from arr
 }
 
-function showModal(heading, text, button) {
+function showModal(heading, content, button) {
   const modalContent = modal.querySelector(".modal__content");
   html = `
   <h1 class="modal__title">${heading}</h1>
-  <p class="modal__text">${text}</p>
+  <section class="modal__content">${content}</section>
   <button class="modal__button">${button}</button>
   `;
   modalContent.innerHTML = html;
-  modal.classList.remove("hidden");
+  modal.showModal();
+
+  sweFlag = document.querySelector("#swe");
+
+  sweFlag.addEventListener("click", () => {
+    console.log("swe");
+  });
 }
