@@ -1,139 +1,159 @@
 <!DOCTYPE html>
 <html lang="sv">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ege, Philip och Mattias Hangman</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="main.js" defer type="application/javascript"></script>
-  </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ege, Philip och Mattias Hangman</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="main.js" defer type="application/javascript"></script>
+	</head>
 
-  <body>
-    <!-- The Modal -->
-    <div id="modal" class="modal hidden">
-      <!-- Modal content -->
-      <div class="modal__content">
-        <h1 class="modal__title">Jag är en modal</h1>
-        <p class="modal__text">Some text in the Modal..</p>
-        <button class="modal__button">Spela</button>
-      </div>
-    </div>
-    <main>
-      <section class="image">
-        <!-- I need to put the svg in the html to be able to customize and animate it with css -->
-        <svg
-          class="hangman"
-          viewBox="0 0 97.798119 125.82729"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg">
-          <g
-            id="hangman__body-parts"
-            class="hangman__body-parts"
-            transform="translate(-44.846877,-33.319586)">
-            <path
-              id="hangman__base"
-              class="hangman__base hangman__part"
-              d="M 45.640627,159.14688 A 28.839582,28.839582 0 0 1 74.480209,130.3073 28.839582,28.839582 0 0 1 103.31979,159.14688" />
-            <path
-              id="hangman__stem"
-              class="hangman__stem"
-              d="M 74.087113,130.21371 V 33.48887" />
-            <path
-              id="hangman__beam"
-              class="hangman__beam"
-              d="M 73.338759,34.237226 H 132.27168" />
-            <path
-              id="hangman__cross-brace"
-              class="hangman__crossbrace"
-              d="M 85.873695,33.863047 74.274205,46.210906" />
-            <path
-              id="hangman__rope"
-              class="hangman__rope"
-              d="M 131.52334,33.395326 V 63.703691" />
-            <circle
-              id="hangman__head"
-              class="hangman__head"
-              cx="131.84668"
-              cy="72.784409"
-              r="9.6131945" />
-            <path
-              id="hangman__body"
-              class="hangman__body"
-              d="M 131.61687,82.131926 V 113.56282" />
-            <path
-              id="hangman__arm-left"
-              class="hangman__arm-left"
-              d="M 131.52333,86.80914 119.92384,99.156999" />
-            <path
-              id="hangmanarm__arm-right"
-              class="hangman__arm-right"
-              d="M 131.42978,87.370408 142.09384,97.66028" />
-            <path
-              id="hangman__leg_left"
-              class="hangman__leg-left"
-              d="m 131.33625,112.62738 -11.03824,12.16077" />
-            <path
-              id="hangman__leg_right"
-              class="hangman__leg-right"
-              d="m 131.80384,112.97607 9.82241,12.96009" />
+	<body>
+		<!-- The Modal -->
+		<div id="modal" class="modal hidden">
+			<!-- Modal content -->
+			<div class="modal__content">
+				<h1 class="modal__title">Jag är en modal</h1>
+				<p class="modal__text">Some text in the Modal..</p>
+				<button class="modal__button">Spela</button>
+			</div>
+		</div>
+		<main>
+			<section class="image">
+				<!-- I need to put the svg in the html to be able to customize and animate it with css -->
+				<svg
+					class="hangman"
+					viewBox="0 0 97.798119 125.82729"
+					version="1.1"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<g
+						id="hangman__body-parts"
+						class="hangman__body-parts"
+						transform="translate(-44.846877,-33.319586)"
+					>
+						<path
+							id="hangman__base"
+							class="hangman__base hangman__part"
+							d="M 45.640627,159.14688 A 28.839582,28.839582 0 0 1 74.480209,130.3073 28.839582,28.839582 0 0 1 103.31979,159.14688"
+						/>
+						<path
+							id="hangman__stem"
+							class="hangman__stem"
+							d="M 74.087113,130.21371 V 33.48887"
+						/>
+						<path
+							id="hangman__beam"
+							class="hangman__beam"
+							d="M 73.338759,34.237226 H 132.27168"
+						/>
+						<path
+							id="hangman__cross-brace"
+							class="hangman__crossbrace"
+							d="M 85.873695,33.863047 74.274205,46.210906"
+						/>
+						<path
+							id="hangman__rope"
+							class="hangman__rope"
+							d="M 131.52334,33.395326 V 63.703691"
+						/>
+						<circle
+							id="hangman__head"
+							class="hangman__head"
+							cx="131.84668"
+							cy="72.784409"
+							r="9.6131945"
+						/>
+						<path
+							id="hangman__body"
+							class="hangman__body"
+							d="M 131.61687,82.131926 V 113.56282"
+						/>
+						<path
+							id="hangman__arm-left"
+							class="hangman__arm-left"
+							d="M 131.52333,86.80914 119.92384,99.156999"
+						/>
+						<path
+							id="hangmanarm__arm-right"
+							class="hangman__arm-right"
+							d="M 131.42978,87.370408 142.09384,97.66028"
+						/>
+						<path
+							id="hangman__leg_left"
+							class="hangman__leg-left"
+							d="m 131.33625,112.62738 -11.03824,12.16077"
+						/>
+						<path
+							id="hangman__leg_right"
+							class="hangman__leg-right"
+							d="m 131.80384,112.97607 9.82241,12.96009"
+						/>
 
-            <g
-              id="hangman__face"
-              class="hangman__face"
-              transform="translate(44.846877,33.319586)">
-              <g id="g14" transform="rotate(45,83.715975,36.004481)">
-                <path d="m 86.359376,36.296875 h -3.875" id="path13" />
-                <path d="m 84.375001,38.3125 v -3.875" id="path14" />
-              </g>
-              <g id="g16" transform="rotate(45,87.437175,44.561478)">
-                <path d="m 86.359376,36.296875 h -3.875" id="path15" />
-                <path d="m 84.375001,38.3125 v -3.875" id="path16" />
-              </g>
-              <path
-                id="path17"
-                d="m 82.828125,44.835937 a 4.1171875,4.1953125 0 0 1 4.117187,-4.195312 4.1171875,4.1953125 0 0 1 4.117188,4.195312" />
-            </g>
-          </g>
-        </svg>
-      </section>
-      <section class="word-line"></section>
-      <section class="letters">
-        <section class="letters__sections">
-          <p id="a" class="letters__letter">A</p>
-          <p id="b" class="letters__letter">B</p>
-          <p id="c" class="letters__letter">C</p>
-          <p id="d" class="letters__letter">D</p>
-          <p id="e" class="letters__letter">E</p>
-          <p id="f" class="letters__letter">F</p>
-          <p id="g" class="letters__letter">G</p>
-          <p id="h" class="letters__letter">H</p>
-          <p id="i" class="letters__letter">I</p>
-          <p id="j" class="letters__letter">J</p>
-        </section>
-        <section class="letters__sections">
-          <p id="k" class="letters__letter">K</p>
-          <p id="l" class="letters__letter">L</p>
-          <p id="m" class="letters__letter">M</p>
-          <p id="n" class="letters__letter">N</p>
-          <p id="o" class="letters__letter">O</p>
-          <p id="p" class="letters__letter">P</p>
-          <p id="q" class="letters__letter">Q</p>
-          <p id="r" class="letters__letter">R</p>
-          <p id="s" class="letters__letter">S</p>
-          <p id="t" class="letters__letter">T</p>
-        </section>
-        <section class="letters__sections">
-          <p id="u" class="letters__letter">U</p>
-          <p id="v" class="letters__letter">V</p>
-          <p id="w" class="letters__letter">W</p>
-          <p id="x" class="letters__letter">X</p>
-          <p id="y" class="letters__letter">Y</p>
-          <p id="z" class="letters__letter">Z</p>
-          <p id="å" class="letters__letter">Å</p>
-          <p id="ä" class="letters__letter">Ä</p>
-          <p id="ö" class="letters__letter">Ö</p>
-        </section>
-      </section>
-    </main>
-  </body>
+						<g
+							id="hangman__face"
+							class="hangman__face"
+							transform="translate(44.846877,33.319586)"
+						>
+							<g id="g14" transform="rotate(45,83.715975,36.004481)">
+								<path d="m 86.359376,36.296875 h -3.875" id="path13" />
+								<path d="m 84.375001,38.3125 v -3.875" id="path14" />
+							</g>
+							<g id="g16" transform="rotate(45,87.437175,44.561478)">
+								<path d="m 86.359376,36.296875 h -3.875" id="path15" />
+								<path d="m 84.375001,38.3125 v -3.875" id="path16" />
+							</g>
+							<path
+								id="path17"
+								d="m 82.828125,44.835937 a 4.1171875,4.1953125 0 0 1 4.117187,-4.195312 4.1171875,4.1953125 0 0 1 4.117188,4.195312"
+							/>
+						</g>
+					</g>
+				</svg>
+			</section>
+			<section class="word-line"></section>
+			<section class="letters">
+				<section class="letters__sections">
+					<p id="a" class="letters__letter">A</p>
+					<p id="b" class="letters__letter">B</p>
+					<p id="c" class="letters__letter">C</p>
+					<p id="d" class="letters__letter">D</p>
+					<p id="e" class="letters__letter">E</p>
+					<p id="f" class="letters__letter">F</p>
+					<p id="g" class="letters__letter">G</p>
+					<p id="h" class="letters__letter">H</p>
+					<p id="i" class="letters__letter">I</p>
+					<p id="j" class="letters__letter">J</p>
+				</section>
+				<section class="letters__sections">
+					<p id="k" class="letters__letter">K</p>
+					<p id="l" class="letters__letter">L</p>
+					<p id="m" class="letters__letter">M</p>
+					<p id="n" class="letters__letter">N</p>
+					<p id="o" class="letters__letter">O</p>
+					<p id="p" class="letters__letter">P</p>
+					<p id="q" class="letters__letter">Q</p>
+					<p id="r" class="letters__letter">R</p>
+					<p id="s" class="letters__letter">S</p>
+					<p id="t" class="letters__letter">T</p>
+				</section>
+				<section class="letters__sections">
+					<p id="u" class="letters__letter">U</p>
+					<p id="v" class="letters__letter">V</p>
+					<p id="w" class="letters__letter">W</p>
+					<p id="x" class="letters__letter">X</p>
+					<p id="y" class="letters__letter">Y</p>
+					<p id="z" class="letters__letter">Z</p>
+					<p id="å" class="letters__letter">Å</p>
+					<p id="ä" class="letters__letter">Ä</p>
+					<p id="ö" class="letters__letter">Ö</p>
+				</section>
+			</section>
+			<! -- Philip-->
+			<div id="loser__modal" class="loser__modal">
+				<h1 class="loser__title">Du förlora en iPhone!</h1>
+				<button class="loser__button">Prova igen!</button>
+			</div>
+		</main>
+	</body>
 </html>
