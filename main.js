@@ -15,7 +15,7 @@ const allLetters = document.querySelectorAll(".letters__letter");
 let wrongGuesses;
 let guesses;
 let guessedWord;
-let lang = "en";
+let lang = "sv";
 
 /*
  * Game setup variables
@@ -135,7 +135,7 @@ const sweWords = [
   "övre",
 ];
 const engWords = ["children", "roomy", "calculator", "reminiscent", "ubiquitous"];
-let dictionary = engWords;
+let dictionary = sweWords;
 let word;
 let possibleLetters;
 /*
@@ -147,7 +147,7 @@ showModal(
 <p>Välj en bokstav att gissa på med tangentbordet eller genom att klicka på bokstäverna på skärmen. </p>
 <h2>Välj språk på orden</h2>
 <div class="modal__flag-container">
-<img class="modal__image" id="swe"src="./img/flag_swe.png" alt="Swedish flag" title="Spela med svenska ord" />
+<img class="modal__image modal__image-selected" id="swe"src="./img/flag_swe.png" alt="Swedish flag" title="Spela med svenska ord" />
 <img class="modal__image" id="uk" src="img/flag_uk.svg" alt="UK flag" title="Play with english words" />
 </div>
 `,
