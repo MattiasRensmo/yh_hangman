@@ -4,6 +4,8 @@ const modal = document.querySelector("#modal");
 //Philip
 const loserModal = document.getElementById("loser__modal");
 const tryAgainButton = loserModal.querySelector(".loser__button");
+let winnerModal = document.getElementById("winner__modal");
+let playAgainButton = document.querySelector(".winner__button");
 
 bodyParts.forEach((part) => part.classList.add("hidden"));
 let wrongGuesses = 0;
@@ -79,7 +81,7 @@ modal.querySelector(".modal__button").addEventListener("click", () => {
 });
 
 //Event listener for press the letter (mattias)
-const letterSection = document.querySelector(".letters"); //Gjorde ändringar i html, de finns 3 nya sections i letters, vet ej om det förstör nåt med denna rad//
+const letterSection = document.querySelector(".letters");
 letterSection.addEventListener("click", (e) => {
   if (e.target.classList.contains("letters__letter")) {
     const letter = e.target.innerText.toLocaleLowerCase();
@@ -156,12 +158,6 @@ function winner() {
   //Visar vinnarrutan
   showModal("Vinst", "Grattis du har vunnit", "Spela Igen");
   console.log(`Grattis du vann en iPhone med bara ${guesses} gissningar`);
-}
-
-function displayLoserModal() {
-  //Visar förlorarrutan - Philip
-  console.log("Game Over");
-  loserModal.showModal();
 }
 
 function displayLoserModal() {
