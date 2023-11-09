@@ -1,6 +1,10 @@
 const bodyParts = document.querySelectorAll("#hangman__body-parts > *");
 const modal = document.querySelector("#modal");
 
+//Philip
+const loserModal = document.getElementById("loser__modal");
+const tryAgainButton = loserModal.querySelector(".loser__button");
+
 bodyParts.forEach((part) => part.classList.add("hidden"));
 let wrongGuesses = 0;
 let guesses = 0;
@@ -154,13 +158,24 @@ function winner() {
   console.log(`Grattis du vann en iPhone med bara ${guesses} gissningar`);
 }
 
-function loser() {
-  //Visar förlorarrutan
+function displayLoserModal() {
+  //Visar förlorarrutan - Philip
   console.log("Game Over");
+  loserModal.showModal();
 }
 
-function resetGame() {
-  //Refreshar så vi kan spela igen
+function displayLoserModal() {
+  //Visar förlorarrutan - Philip
+  console.log("Game Over");
+  loserModal.showModal();
+}
+
+function loser() {
+  //Refreshar så vi kan spela igen - Philip
+  displayLoserModal();
+  tryAgainButton.addEventListener("click", () => {
+    location.reload();
+  });
 }
 
 function removeFromArray(str, arr) {
