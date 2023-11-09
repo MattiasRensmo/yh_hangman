@@ -5,7 +5,13 @@ bodyParts.forEach((part) => part.classList.add("hidden"));
 let wrongGuesses = 0;
 let guesses = 0;
 
-const dictionary = ["children", "roomy", "calculator", "reminiscent", "ubiquitous"];
+const dictionary = [
+  "children",
+  "roomy",
+  "calculator",
+  "reminiscent",
+  "ubiquitous",
+];
 
 const word = randomWord(dictionary);
 let guessedWord = "";
@@ -144,6 +150,7 @@ function drawHangman() {
 
 function winner() {
   //Visar vinnarrutan
+  showModal("Vinst", "Grattis du har vunnit", "Spela Igen");
   console.log(`Grattis du vann en iPhone med bara ${guesses} gissningar`);
 }
 
