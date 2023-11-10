@@ -7,12 +7,7 @@ const wordLine = document.querySelector(".word-line");
 //Philip
 const loserModal = document.getElementById("loser__modal");
 const tryAgainButton = loserModal.querySelector(".loser__button");
-<<<<<<< HEAD
-let winnerModal = document.getElementById("winner__modal");
-let playAgainButton = document.querySelector(".winner__button");
-=======
 const allLetters = document.querySelectorAll(".letters__letter");
->>>>>>> acffe982fe756a5cbdaf8745ec93fa8648ef6bc7
 
 /*
  * Game tracking variables
@@ -22,14 +17,6 @@ let guesses;
 let guessedWord;
 let lang = "sv";
 
-<<<<<<< HEAD
-const dictionary = [
-  "children",
-  "roomy",
-  "calculator",
-  "reminiscent",
-  "ubiquitous",
-=======
 /*
  * Game setup variables
  */
@@ -146,9 +133,14 @@ const sweWords = [
   "ökensand",
   "öppnare",
   "övre",
->>>>>>> acffe982fe756a5cbdaf8745ec93fa8648ef6bc7
 ];
-const engWords = ["children", "roomy", "calculator", "reminiscent", "ubiquitous"];
+const engWords = [
+  "children",
+  "roomy",
+  "calculator",
+  "reminiscent",
+  "ubiquitous",
+];
 let dictionary = sweWords;
 let word;
 let possibleLetters;
@@ -168,13 +160,6 @@ showModal(
   "Spela"
 );
 
-<<<<<<< HEAD
-const word = randomWord(dictionary);
-let guessedWord = "";
-for (let i = 0; i < word.length; i++) {
-  guessedWord += " ";
-  console.log(word[i]);
-=======
 function setup() {
   bodyParts.forEach((part) => part.classList.add("hidden"));
   possibleLetters = [
@@ -219,62 +204,8 @@ function setup() {
   console.log("⭕  setup  allLetters:", allLetters);
 
   console.log("⭕ Rätt svar:", word);
->>>>>>> acffe982fe756a5cbdaf8745ec93fa8648ef6bc7
 }
 
-<<<<<<< HEAD
-let correctGuesses; // Här lägger vi in alla rätta bokstäver på rätt plats "a--ba"
-// Detta kan ju oxå vara en array med de rätta bokstäverna.
-// Så kan vi kolla om alla bokstäver i svarsordet finns i arrayn isåfall är det ju kalrt
-// Eller så gör vi ett ord med mellanslag så är det lätt att skriva ut det på raden "a a" = "apa"
-let possibleLetters = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-  "å",
-  "ä",
-  "ö",
-];
-const wordLine = document.querySelector(".word-line");
-
-showModal("Spela Hangman", "Vilket språk vill du ha?", "Spela");
-
-drawLetterLines(guessedWord);
-
-//Event listener för letter på keyboard (mattias)
-document.addEventListener("keydown", (e) => {
-  const letter = e.key.toLocaleLowerCase();
-  letterGuess(letter, word);
-  guess(letter, word);
-});
-
-modal.querySelector(".modal__button").addEventListener("click", () => {
-  console.log("Spela");
-  modal.classList.add("hidden");
-=======
 /*
  * Event listners
  */
@@ -323,7 +254,6 @@ document.addEventListener("keydown", (e) => {
 
 document.addEventListener("keyup", (e) => {
   fired = false;
->>>>>>> acffe982fe756a5cbdaf8745ec93fa8648ef6bc7
 });
 
 //Event listener for press the letter (mattias)
@@ -332,11 +262,7 @@ letterSection.addEventListener("click", (e) => {
   if (e.target.classList.contains("letters__letter")) {
     const letter = e.target.innerText.toLocaleLowerCase();
     letterGuess(letter, word);
-<<<<<<< HEAD
-    guess(letter, word);
-=======
     // guess(letter, word);
->>>>>>> acffe982fe756a5cbdaf8745ec93fa8648ef6bc7
   }
 });
 
@@ -346,8 +272,6 @@ function randomWord(dic) {
   const word = dic[random];
   removeFromArray(word, dic);
   return word;
-<<<<<<< HEAD
-=======
 }
 
 function createGuessWord(word) {
@@ -356,26 +280,15 @@ function createGuessWord(word) {
     w += " ";
   }
   return w;
->>>>>>> acffe982fe756a5cbdaf8745ec93fa8648ef6bc7
 }
 
 function drawLetterLines(word) {
   //Draws as many lines as there are letters in the word
-<<<<<<< HEAD
-  //Optional variable "Hidden" set to false if we wanna shoa all letters at the end
-
-  hidden = false; // ⭕ for testing purpose only, remove to hide letters"
-=======
->>>>>>> acffe982fe756a5cbdaf8745ec93fa8648ef6bc7
   wordLine.innerHTML = "";
   for (let i = 0; i < word.length; i++) {
     wordLine.innerHTML += `
     <p class="word-line__letter">${word[i].toUpperCase()}</p>
-<<<<<<< HEAD
-    `; //Show with letters
-=======
     `;
->>>>>>> acffe982fe756a5cbdaf8745ec93fa8648ef6bc7
   }
 }
 
@@ -383,30 +296,18 @@ function letterGuess(letter, word) {
   //If its a allowed letter that has't been guessed yet
   if (possibleLetters.includes(letter)) {
     removeFromArray(letter, possibleLetters);
-<<<<<<< HEAD
-    //todo We should add a class to make the mouse pointer to an arrow when we cant click it anymore
-    console.log("Guessed", letter);
-  }
-  // ✅ Om bokstaven redan är gissad - gör inget
-  //Om bokstaven finns i word kör correctGuess
-  // Om bokstaven inte finns i word -  kör wrongguess
-=======
     guess(letter, word);
     // sleep(2000);
     //todo We should add a class to make the mouse pointer to an arrow when we cant click it anymore
     console.log("Guessed", letter);
   }
->>>>>>> acffe982fe756a5cbdaf8745ec93fa8648ef6bc7
 }
 
 function guess(letter, word) {
   guesses++;
   if (word.includes(letter)) {
     document.getElementById(letter).style.color = "green";
-<<<<<<< HEAD
-=======
     document.getElementById(letter).style.cursor = "default";
->>>>>>> acffe982fe756a5cbdaf8745ec93fa8648ef6bc7
     console.log("Correct letter", letter);
     let newGuessedWord = guessedWord.split("");
     for (let i = 0; i < word.length; i++) {
@@ -418,18 +319,10 @@ function guess(letter, word) {
     drawLetterLines(guessedWord);
     if (guessedWord === word) winner();
   } else {
-<<<<<<< HEAD
-    document.getElementById(letter).style.color = "red";
-    drawHangman();
-  }
-  // rita upp bokstäverna på linjerna, gör val bokstav grön, lägg in i corect Guesses
-  //Om corretGuesses == word winner()
-=======
     document.getElementById(letter).style.cursor = "default";
     document.getElementById(letter).style.color = "red";
     drawHangman();
   }
->>>>>>> acffe982fe756a5cbdaf8745ec93fa8648ef6bc7
 }
 
 function drawHangman() {
@@ -443,9 +336,6 @@ function drawHangman() {
 
 function winner() {
   //Visar vinnarrutan
-<<<<<<< HEAD
-  showModal("Vinst", "Grattis du har vunnit", "Spela Igen");
-=======
 
   showModal(
     "Hangman",
@@ -470,7 +360,6 @@ function winner() {
     "Spela igen"
   );
 
->>>>>>> acffe982fe756a5cbdaf8745ec93fa8648ef6bc7
   console.log(`Grattis du vann en iPhone med bara ${guesses} gissningar`);
 }
 
@@ -492,11 +381,7 @@ function removeFromArray(str, arr) {
   return arr.splice(arr.indexOf(str), 1); //Remove str from arr
 }
 
-<<<<<<< HEAD
-function showModal(heading, text, button) {
-=======
 function showModal(heading, content, button) {
->>>>>>> acffe982fe756a5cbdaf8745ec93fa8648ef6bc7
   const modalContent = modal.querySelector(".modal__content");
   html = `
   <h1 class="modal__title">${heading}</h1>
@@ -504,9 +389,5 @@ function showModal(heading, content, button) {
   <button id="play-button" class="modal__button">${button}</button>
   `;
   modalContent.innerHTML = html;
-<<<<<<< HEAD
-  modal.classList.remove("hidden");
-=======
   modal.showModal();
->>>>>>> acffe982fe756a5cbdaf8745ec93fa8648ef6bc7
 }
