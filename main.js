@@ -5,6 +5,7 @@ const wordLine = document.querySelector(".word-line");
 //Philip
 const loserModal = document.getElementById("loser__modal");
 const tryAgainButton = loserModal.querySelector(".loser__button");
+const correctText = loserModal.querySelector(".correct__text");
 const allLetters = document.querySelectorAll(".letters__letter");
 
 /*
@@ -370,6 +371,7 @@ function displayLoserModal() {
 function loser() {
 	//Refreshar så vi kan spela igen - Philip
 	displayLoserModal();
+	correctText.textContent = `Rätt ord var: ${word} `;
 	tryAgainButton.addEventListener("click", () => {
 		location.reload();
 	});

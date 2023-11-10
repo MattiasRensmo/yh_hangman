@@ -63,6 +63,42 @@ img {
 	font-size: clamp(1rem, 8vw, 2.5rem);
 }
 
+.loser__modal {
+	position: fixed;
+	background-color: #fefefe;
+	border-radius: 0.5rem;
+	padding: 1.6rem;
+	border: 0.2rem solid #888;
+	text-align: center;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.loser__title {
+	color: #ff0000;
+	font-size: 1.5rem;
+	margin-bottom: 10px;
+}
+
+.correct__text {
+	color: #333;
+	font-size: 2rem;
+	text-transform: uppercase;
+}
+
+.loser__button {
+	background-color: #ff0000;
+	color: #fff;
+	padding: 0.6rem 1rem;
+	border: none;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	font-size: 1rem;
+}
+
+.loser__button:hover {
+	background-color: rgb(8, 121, 64);
+}
+
 .modal {
 	border-radius: 1rem;
 	background-color: #646464;
