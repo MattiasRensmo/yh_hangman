@@ -9,8 +9,30 @@
 	</head>
 
 	<body>
+		<dialog id="modal" class="modal">
+			<!-- Modal content -->
+			<div class="modal__content">
+				<h1 class="modal__title">Jag är en modal</h1>
+				<p class="modal__text">Some text in the Modal..</p>
+				<div class="modal__flag-container">
+					<img
+						src="./img/flag_swe.png"
+						alt="Swedish flag"
+						title="Spela med svenska ord"
+					/>
+					<img
+						src="img/flag_uk.svg"
+						alt="UK flag"
+						title="Play with english words"
+					/>
+				</div>
+				<button class="modal__button">Spela</button>
+			</div>
+		</dialog>
 		<main>
 			<section class="image">
+				<!-- The Modal -->
+
 				<!-- I need to put the svg in the html to be able to customize and animate it with css -->
 				<svg
 					class="hangman"
@@ -104,16 +126,47 @@
 			</section>
 			<section class="word-line"></section>
 			<section class="letters">
-				<p id="a" class="letters__letter">A</p>
-				<p id="b" class="letters__letter">B</p>
-				<p id="c" class="letters__letter">C</p>
+				<section class="letters__sections">
+					<p id="a" class="letters__letter">A</p>
+					<p id="b" class="letters__letter">B</p>
+					<p id="c" class="letters__letter">C</p>
+					<p id="d" class="letters__letter">D</p>
+					<p id="e" class="letters__letter">E</p>
+					<p id="f" class="letters__letter">F</p>
+					<p id="g" class="letters__letter">G</p>
+					<p id="h" class="letters__letter">H</p>
+					<p id="i" class="letters__letter">I</p>
+					<p id="j" class="letters__letter">J</p>
+				</section>
+				<section class="letters__sections">
+					<p id="k" class="letters__letter">K</p>
+					<p id="l" class="letters__letter">L</p>
+					<p id="m" class="letters__letter">M</p>
+					<p id="n" class="letters__letter">N</p>
+					<p id="o" class="letters__letter">O</p>
+					<p id="p" class="letters__letter">P</p>
+					<p id="q" class="letters__letter">Q</p>
+					<p id="r" class="letters__letter">R</p>
+					<p id="s" class="letters__letter">S</p>
+					<p id="t" class="letters__letter">T</p>
+				</section>
+				<section class="letters__sections">
+					<p id="u" class="letters__letter">U</p>
+					<p id="v" class="letters__letter">V</p>
+					<p id="w" class="letters__letter">W</p>
+					<p id="x" class="letters__letter">X</p>
+					<p id="y" class="letters__letter">Y</p>
+					<p id="z" class="letters__letter">Z</p>
+					<p id="å" class="letters__letter">Å</p>
+					<p id="ä" class="letters__letter">Ä</p>
+					<p id="ö" class="letters__letter">Ö</p>
+				</section>
 			</section>
-
-			<section class="game-over">
-				<h4>Slut på spelet!</h4>
-				<p>Rätt ord var: <b>drake</b></p>
-				<button class="try-again">Prova igen!</button>
-			</section>
+			<!-- Philip -->
+			<dialog id="loser__modal" class="loser__modal">
+				<h1 class="loser__title">Du förlora en iPhone!</h1>
+				<button class="loser__button">Prova igen!</button>
+			</dialog>
 		</main>
 	</body>
 </html>
