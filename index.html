@@ -9,17 +9,30 @@
   </head>
 
   <body>
-    <!-- The Modal -->
-    <div id="modal" class="modal hidden">
+    <dialog id="modal" class="modal">
       <!-- Modal content -->
       <div class="modal__content">
         <h1 class="modal__title">Jag är en modal</h1>
         <p class="modal__text">Some text in the Modal..</p>
+        <div class="modal__flag-container">
+          <img
+            src="./img/flag_swe.png"
+            alt="Swedish flag"
+            title="Spela med svenska ord"
+          />
+          <img
+            src="img/flag_uk.svg"
+            alt="UK flag"
+            title="Play with english words"
+          />
+        </div>
         <button class="modal__button">Spela</button>
       </div>
-    </div>
+    </dialog>
     <main>
       <section class="image">
+        <!-- The Modal -->
+
         <!-- I need to put the svg in the html to be able to customize and animate it with css -->
         <svg
           class="hangman"
@@ -149,7 +162,7 @@
           <p id="ö" class="letters__letter">Ö</p>
         </section>
       </section>
-      <!--Philip-->
+      <!-- Philip -->
       <dialog id="loser__modal" class="loser__modal">
         <h1 class="loser__title">Du förlora en iPhone!</h1>
         <button class="loser__button">Prova igen!</button>
