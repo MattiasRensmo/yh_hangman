@@ -10,25 +10,14 @@
 
   <body>
     <dialog id="modal" class="modal">
-      <!-- Modal content -->
+      <!-- Winner and start modal -->
       <div class="modal__content">
-        <h1 class="modal__title">Jag är en modal</h1>
-        <p class="modal__text">Some text in the Modal..</p>
-        <div class="modal__flag-container">
-          <img
-            src="./img/flag_swe.png"
-            alt="Swedish flag"
-            title="Spela med svenska ord" />
-          <img src="img/flag_uk.svg" alt="UK flag" title="Play with english words" />
-        </div>
-        <button class="modal__button">Spela</button>
+        <!-- JS makes content -->
       </div>
     </dialog>
-    <main>
+    <main class="wrapper">
       <section class="image">
-        <!-- The Modal -->
-
-        <!-- I need to put the svg in the html to be able to customize and animate it with css -->
+        <!-- Svg in html to be able to customize and animate it with css -->
         <svg
           class="hangman"
           viewBox="0 0 97.798119 125.82729"
@@ -145,7 +134,8 @@
       <!-- Philip -->
       <dialog id="loser__modal" class="loser__modal">
         <h1 class="loser__title">Du förlora en iPhone!</h1>
-        <p class="correct__text">Rätt ord var: >[the word]</p>
+        <p class="looser__help-text">Rätt ord var:</p>
+        <p class="correct__text">[the word]</p>
         <button class="loser__button">Prova igen!</button>
       </dialog>
     </main>

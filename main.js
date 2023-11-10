@@ -1,14 +1,15 @@
 /*
  * All dom objects
  */
-const modal = document.querySelector("#modal");
+const modal = document.querySelector("#modal"); //winner and start
 const bodyParts = document.querySelectorAll("#hangman__body-parts > *");
 const wordLine = document.querySelector(".word-line");
-//Philip
+const keyboardSection = document.querySelector(".letters");
+const allLetters = document.querySelectorAll(".letters__letter");
+//Loser Modal
 const loserModal = document.getElementById("loser__modal");
 const tryAgainButton = loserModal.querySelector(".loser__button");
 const correctText = loserModal.querySelector(".correct__text");
-const allLetters = document.querySelectorAll(".letters__letter");
 
 /*
  * Game tracking variables
@@ -138,6 +139,7 @@ const engWords = ["children", "roomy", "calculator", "reminiscent", "ubiquitous"
 let dictionary = sweWords;
 let word;
 let possibleLetters;
+
 /*
  * Setup
  */
@@ -147,8 +149,10 @@ showModal(
 <p>Välj en bokstav att gissa på med tangentbordet eller genom att klicka på bokstäverna på skärmen. </p>
 <h2>Välj språk på orden</h2>
 <div class="modal__flag-container">
-<img class="modal__image modal__image-selected" id="swe"src="./img/flag_swe.png" alt="Swedish flag" title="Spela med svenska ord" />
-<img class="modal__image" id="uk" src="img/flag_uk.svg" alt="UK flag" title="Play with english words" />
+<img class="modal__image modal__image-selected" 
+id="swe" src="./img/flag_swe.png" alt="Swedish flag" title="Spela med svenska ord" />
+<img class="modal__image" 
+id="uk" src="img/flag_uk.svg" alt="UK flag" title="Play with english words" />
 </div>
 `,
   "Spela"
@@ -195,29 +199,22 @@ function setup() {
   guessedWord = createGuessWord(word);
   drawLetterLines(guessedWord);
   allLetters.forEach((letter) => (letter.style.color = "white"));
-  console.log("⭕  setup  allLetters:", allLetters);
-
-  console.log("⭕ Rätt svar:", word);
 }
 
 /*
  * Event listners
  */
 
-// Event listner for everything in modal
+// Event listner for everything in start and winner modal
 modal.addEventListener("click", (e) => {
-  console.log(e);
   const id = e.target.id;
   if (id === "swe") {
     lang = "sv";
     setLang(lang);
-    console.log("Swedish");
   } else if (id === "uk") {
     lang = "en";
     setLang(lang);
-    console.log("Eng");
   } else if (id === "play-button") {
-    console.log("spela SPELA spela ");
     if (dictionary.length > 0) {
       setup();
       modal.close();
@@ -235,11 +232,11 @@ function setLang(lang) {
   dictionary = lang === "sv" ? sweWords : engWords;
 }
 
-//Event listener för letter på keyboard (mattias)
-let fired = false; //To stop key smashing
+//Event listener för letter på keyboard
+let keyHeldDown = false; //To stop key smashing
 document.addEventListener("keydown", (e) => {
-  if (!fired) {
-    fired = true;
+  if (!keyHeldDown) {
+    keyHeldDown = true;
     if (e.repeat) return;
     const letter = e.key.toLocaleLowerCase();
     letterGuess(letter, word);
@@ -247,44 +244,20 @@ document.addEventListener("keydown", (e) => {
 });
 
 document.addEventListener("keyup", (e) => {
-  fired = false;
+  keyHeldDown = false;
 });
 
-//Event listener for press the letter (mattias)
-const letterSection = document.querySelector(".letters"); //Gjorde ändringar i html, de finns 3 nya sections i letters, vet ej om det förstör nåt med denna rad//
-letterSection.addEventListener("click", (e) => {
+//Event listener for click the letter with mouse
+keyboardSection.addEventListener("click", (e) => {
   if (e.target.classList.contains("letters__letter")) {
     const letter = e.target.innerText.toLocaleLowerCase();
     letterGuess(letter, word);
-    // guess(letter, word);
   }
 });
 
-function randomWord(dic) {
-  //Tar ett ord ur dictionary
-  const random = Math.floor(Math.random() * dic.length);
-  const word = dic[random];
-  removeFromArray(word, dic);
-  return word;
-}
-
-function createGuessWord(word) {
-  let w = "";
-  for (let i = 0; i < word.length; i++) {
-    w += " ";
-  }
-  return w;
-}
-
-function drawLetterLines(word) {
-  //Draws as many lines as there are letters in the word
-  wordLine.innerHTML = "";
-  for (let i = 0; i < word.length; i++) {
-    wordLine.innerHTML += `
-    <p class="word-line__letter">${word[i].toUpperCase()}</p>
-    `;
-  }
-}
+/*
+ * Game Logic Functions
+ */
 
 function letterGuess(letter, word) {
   //If its a allowed letter that has't been guessed yet
@@ -319,6 +292,20 @@ function guess(letter, word) {
   }
 }
 
+/*
+ * DISPLAY Functions
+ */
+
+function drawLetterLines(word) {
+  //Draws as many lines as there are letters in the word
+  wordLine.innerHTML = "";
+  for (let i = 0; i < word.length; i++) {
+    wordLine.innerHTML += `
+    <p class="word-line__letter">${word[i].toUpperCase()}</p>
+    `;
+  }
+}
+
 function drawHangman() {
   bodyParts[wrongGuesses].classList.remove("hidden");
   wrongGuesses++;
@@ -334,17 +321,17 @@ function winner() {
   showModal(
     "Hangman",
     `
-  <p>Grattis du hittade ordet -${word.toUpperCase()}- på ${guesses} gissningar. Du vinner en iPhone!</p>
+  <p>Grattis du hittade ordet ${word.toUpperCase()} 
+  på ${guesses} gissningar (varav ${wrongGuesses} var fel) Du vinner en iPhone!</p>
+  
   <h2>Du kan byta språk på orden</h2>
   <div class="modal__flag-container">
-  <img class="modal__image ${
-    lang == "sv" ? "modal__image-selected" : ""
-  }" id="swe"src="./img/flag_swe.png" alt="Swedish flag" title="Spela med svenska ord" />
-
-  <img class="modal__image ${
-    lang == "en" ? "modal__image-selected" : ""
-  }"" id="uk" src="img/flag_uk.svg" alt="UK flag" title="Play with english words" />
+    <img class="modal__image ${lang == "sv" ? "modal__image-selected" : ""}" 
+    id="swe"src="./img/flag_swe.png" alt="Swedish flag" title="Spela med svenska ord" />
+    <img class="modal__image ${lang == "en" ? "modal__image-selected" : ""}"
+    id="uk" src="img/flag_uk.svg" alt="UK flag" title="Play with english words" />
   </div>
+
   <p>${
     dictionary.length <= 0
       ? "Alla ord är slut, byt språk eller testa att gå ut lite"
@@ -353,23 +340,35 @@ function winner() {
   `,
     "Spela igen"
   );
-
-  console.log(`Grattis du vann en iPhone med bara ${guesses} gissningar`);
-}
-
-function displayLoserModal() {
-  //Visar förlorarrutan - Philip
-  console.log("Game Over");
-  loserModal.showModal();
 }
 
 function loser() {
-  //Refreshar så vi kan spela igen - Philip
-  displayLoserModal();
-  correctText.textContent = `Rätt ord var: ${word} `;
+  loserModal.showModal();
+  correctText.textContent = `${word}`;
   tryAgainButton.addEventListener("click", () => {
-    location.reload();
+    setup();
+    loserModal.close();
   });
+}
+
+/*
+ * Support Functions
+ */
+
+function randomWord(dic) {
+  //Chose a random word from array
+  const random = Math.floor(Math.random() * dic.length);
+  const word = dic[random];
+  removeFromArray(word, dic);
+  return word;
+}
+
+function createGuessWord(word) {
+  let w = "";
+  for (let i = 0; i < word.length; i++) {
+    w += " ";
+  }
+  return w;
 }
 
 function removeFromArray(str, arr) {
