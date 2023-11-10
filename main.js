@@ -4,8 +4,8 @@
 const modal = document.querySelector("#modal"); //winner and start
 const bodyParts = document.querySelectorAll("#hangman__body-parts > *");
 const wordLine = document.querySelector(".word-line");
-const keyboardSection = document.querySelector(".letters");
-const allLetters = document.querySelectorAll(".letters__letter");
+const keyboardSection = document.querySelector(".keyboard");
+const allLetters = document.querySelectorAll(".keyboard__letter");
 //Loser Modal
 const loserModal = document.getElementById("loser__modal");
 const tryAgainButton = loserModal.querySelector(".loser__button");
@@ -135,7 +135,13 @@ const sweWords = [
   "öppnare",
   "övre",
 ];
-const engWords = ["children", "roomy", "calculator", "reminiscent", "ubiquitous"];
+const engWords = [
+  "children",
+  "roomy",
+  "calculator",
+  "reminiscent",
+  "ubiquitous",
+];
 let dictionary = sweWords;
 let word;
 let possibleLetters;
@@ -249,7 +255,7 @@ document.addEventListener("keyup", (e) => {
 
 //Event listener for click the letter with mouse
 keyboardSection.addEventListener("click", (e) => {
-  if (e.target.classList.contains("letters__letter")) {
+  if (e.target.classList.contains("keyboard__letter")) {
     const letter = e.target.innerText.toLocaleLowerCase();
     letterGuess(letter, word);
   }
