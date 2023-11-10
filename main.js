@@ -119,7 +119,6 @@ const sweWords = [
   "trubadur",
   "träna",
   "tyngdlag",
-  "tändkula",
   "undgå",
   "urna",
   "utdöma",
