@@ -135,13 +135,7 @@ const sweWords = [
   "öppnare",
   "övre",
 ];
-const engWords = [
-  "children",
-  "roomy",
-  "calculator",
-  "reminiscent",
-  "ubiquitous",
-];
+const engWords = ["children", "roomy", "calculator", "reminiscent", "ubiquitous"];
 let dictionary = sweWords;
 let word;
 let possibleLetters;
@@ -270,9 +264,6 @@ function letterGuess(letter, word) {
   if (possibleLetters.includes(letter)) {
     removeFromArray(letter, possibleLetters);
     guess(letter, word);
-    // sleep(2000);
-    //todo We should add a class to make the mouse pointer to an arrow when we cant click it anymore
-    console.log("Guessed", letter);
   }
 }
 
@@ -281,7 +272,6 @@ function guess(letter, word) {
   if (word.includes(letter)) {
     document.getElementById(letter).style.color = "green";
     document.getElementById(letter).style.cursor = "default";
-    console.log("Correct letter", letter);
     let newGuessedWord = guessedWord.split("");
     for (let i = 0; i < word.length; i++) {
       if (word[i] === letter) {

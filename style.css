@@ -6,8 +6,8 @@
 
 body {
   min-height: 100lvh;
-  background-image: url(./img/blackboard_optimized.jpg);
   background-color: black;
+  background-image: url(./img/blackboard_optimized.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -38,7 +38,6 @@ img {
 /* HANGMAN */
 
 .hangman {
-  /* width: min(400px, 90vw); */
   height: max(30lvh, 10rem);
   opacity: 0.8;
 }
@@ -99,10 +98,12 @@ img {
 /* LETTER KEYBOARD */
 
 .keyboard {
-  /* Den här borde kanske heta keyboard istället för tydlighet??? /M */
   width: 100%;
   max-width: 600px;
   margin-top: -2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .keyboard__row {
@@ -110,6 +111,10 @@ img {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+
+.keyboard__row--short {
+  width: 70%;
 }
 
 .keyboard__letter {
